@@ -28,9 +28,7 @@ public class ToDoFragment extends ListFragment {
 	public Button mDoIt;
 	public ToDoAdapter mAdapter;
 	private ListView mListView;
-	// private static final String TAG = "ToDoListFragment";
 	public ToggleToDoItemArchivedState mToDoArchivedCallback;
-	//public DataLoader mDataLoader;
 	// this is the identifier set in the constructor as to whether the
 	// instance is the todolist or the archived todolist
 	public String mKeyNameForToDoList;
@@ -41,17 +39,17 @@ public class ToDoFragment extends ListFragment {
 	// This interface should be implemented in the parent activity
 	// it is used to communicate between the todo/archived list fragments
 	// so that todos can be archived or unarchived.
+	// The interface implemetion was taken from 
+	// http://developer.android.com/training/basics/fragments/communicating.html
+	// (September 24th, 2014)
 	public interface ToggleToDoItemArchivedState{
 		public void onToDoArchivedStateToggled(ArrayList<Todo> todos, String listName);
 	}
 	
-	// on attach method taken from
-	// http://developer.android.com/training/basics/fragments/communicating.html
+	// Ensures that the parent activity has implemeted the ToggleToDoItemArchivedState
 	@Override
 	public void onAttach(Activity activity){
 		super.onAttach(activity);
-        // This makes sure that the container activity has implemented
-        // the callback interface. If not, it throws an exception.
         try {
             mToDoArchivedCallback = (ToggleToDoItemArchivedState) activity;
         } catch (ClassCastException e) {
@@ -74,7 +72,8 @@ public class ToDoFragment extends ListFragment {
         
         // set the host activity
         // call the dataloader and receive back a list of mTodos
-        // which is an arraylist of todos then add them.
+        // which is an arraylist of todos then add them to
+        // the fragments arraylist of todo items.
         DataLoader mDataLoader = new DataLoader(getActivity(), mDataFileName);
         ArrayList<Todo> mLoadedTodosToBeAdded = mDataLoader.getData(mKeyNameForToDoList);
         addItemsToList(mLoadedTodosToBeAdded, "");        
@@ -88,9 +87,10 @@ public class ToDoFragment extends ListFragment {
         }
 	}
 	
-	// adapted from http://stackoverflow.com/questions/12485698/using-contextual-action-bar-with-fragments
 	// set up the list items to activate the contextual action bar when
 	// long pressed
+	// adapted from http://stackoverflow.com/questions/12485698/using-contextual-action-bar-with-fragments
+	// (September 24, 2014)
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 		// set up the contextual action bar so multiple items in the
@@ -107,6 +107,8 @@ public class ToDoFragment extends ListFragment {
             }
         });
         
+        // Set the listener to see multiple list items selected at the same
+        // time and perform actions based on the users selection choice.
         getListView().setMultiChoiceModeListener(new MultiChoiceModeListener() {
 
             private int nr = 0;
@@ -166,8 +168,8 @@ public class ToDoFragment extends ListFragment {
         });               
 	}
 	
+	// set the state of the to do when its checkbox is toggled
 	public void onListItemClick(ListView listView, View v, int position, long id) {
-		// set the state of the to do when its checkbox is toggled
 		Todo t = ((ToDoAdapter)getListAdapter()).getItem(position);
 	   	if (t.getDone()){
 	   		t.setDone(false);
@@ -178,16 +180,8 @@ public class ToDoFragment extends ListFragment {
     	// Log.v("TAG", "List item clicked");
     }			
 		
-	// heres where we need to save the state of the list
-//	@Override 
-//	public void onPause(){			
-//		super.onPause();
-//		Log.v("DATASAVETEST", mTodos.toString());
-//		mDataLoader.setData(this.mKeyNameForToDoList, mTodos);	
-//	}
-		
+	// creates a new instance of this listfragment.
 	static ToDoFragment newInstance(int num, String storageKeyNameForToDoList, String dataFileName) {
-		// create a new instance of this listfragment.
 		ToDoFragment f = new ToDoFragment();
 		// set the key name so the todolist references the todos
 		// and the archived list refernces the archived list.
@@ -234,23 +228,10 @@ public class ToDoFragment extends ListFragment {
         		// in the list change. To adjust you just subtract the number
         		// of items already removed from the position your deleting.            
         		//removeItemFromToDoList(chosenItemsPositions.keyAt(index)-index);
-
-        		//Integer indexToBeRemoved = chosenItemsPositions.keyAt(index)-index;
-        		//mTodos.remove(chosenItemsPositions.keyAt(index)-index);
-        		
-        		//mTodos.remove(indexToBeRemoved);
-        		//adapter.notifyDataSetChanged();
         		removeItemFromList(chosenItemsPositions, index);
         	}
         }
 	}	
-	
-//	public void emailSelectedItems(){
-//		mListView = getListView();
-//		SparseBooleanArray chosenItemsPositions = mListView.getCheckedItemPositions();
-//		Emailer emailer = new Emailer(getActivity());
-//		emailer.emailSparseBooleanArray(chosenItemsPositions, mTodos);
-//	}
 
 	// create the custom adapter which manages the list of todo's
 	// adapted from The Big Nerd Ranch Guide p 189

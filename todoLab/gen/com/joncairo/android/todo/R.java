@@ -1268,11 +1268,24 @@ containing a value of this type.
         public static final int abc_shareactionprovider_share_with_application=0x7f0a000b;
         public static final int action_settings=0x7f0a0011;
         public static final int app_name=0x7f0a000d;
+        public static final int archive=0x7f0a0021;
+        public static final int date_field=0x7f0a0016;
         public static final int default_todo_entry_text=0x7f0a0012;
+        public static final int email_all=0x7f0a0017;
+        public static final int email_archived=0x7f0a0019;
+        public static final int email_todos=0x7f0a0018;
         public static final int enter_button=0x7f0a0013;
         public static final int hello_world=0x7f0a0010;
         public static final int title_section1=0x7f0a000e;
         public static final int title_section2=0x7f0a000f;
+        public static final int todo_name_field=0x7f0a0015;
+        public static final int total_archived=0x7f0a001d;
+        public static final int total_checked_archived=0x7f0a001e;
+        public static final int total_checked_todos=0x7f0a001b;
+        public static final int total_todos=0x7f0a001a;
+        public static final int total_unchecked_archived=0x7f0a001f;
+        public static final int total_unchecked_todos=0x7f0a001c;
+        public static final int unarchive=0x7f0a0020;
     }
     public static final class style {
         /** 

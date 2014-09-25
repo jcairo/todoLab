@@ -6,47 +6,47 @@
     <item
         android:id="@+id/email_all"
         android:orderInCategory="100"
-        android:title="Email All"/>
+        android:title="@string/email_all"/>
 
     <item
         android:id="@+id/email_all_todos"
         android:orderInCategory="100"
-        android:title="Email Todos"/>
+        android:title="@string/email_todos"/>
 
     <item
         android:id="@+id/email_all_archived"
         android:orderInCategory="100"
-        android:title="Email Archived"/>
+        android:title="@string/email_archived"/>
 
     <item
         android:id="@+id/total_todos"
         android:orderInCategory="100"
-        android:title="Total Todos"/>
+        android:title="@string/total_todos"/>
 
     <item
         android:id="@+id/total_checked_todos"
         android:orderInCategory="100"
-        android:title="Total Checked Todos"/>
+        android:title="@string/total_checked_todos"/>
 
     <item
         android:id="@+id/total_unchecked_todos"
         android:orderInCategory="100"
-        android:title="Total Unhecked Todos"/>
+        android:title="@string/total_unchecked_todos"/>
 
     <item
         android:id="@+id/total_archived"
         android:orderInCategory="100"
-        android:title="Total Archived"/>
+        android:title="@string/total_archived"/>
 
     <item
         android:id="@+id/total_checked_archived"
         android:orderInCategory="100"
-        android:title="Total Checked Archived"/>
+        android:title="@string/total_checked_archived"/>
   
     <item
         android:id="@+id/total_unchecked_archived"
         android:orderInCategory="100"
-        android:title="Total Unhecked Archived"/>
+        android:title="@string/total_unchecked_archived"/>
     
 
 </menu>

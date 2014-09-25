@@ -12,7 +12,6 @@ import com.google.gson.reflect.TypeToken;
 public class DataLoader {
 	Context mContext;
 	String mDataFile;
-	
 	// set to do list
 	// parameter specifies key value in shared prefs
 	// reads sharedprefs returns a ToDoList object
@@ -51,13 +50,6 @@ public class DataLoader {
 	public DataLoader(Context context, String keyName){
 		mContext = context;
 		// this is the main datafile for the application
-		mDataFile = keyName;
-        //Gson mGson = new Gson();
-		// for testing purposes create a Todo list object and
-		// save it so we have data to work with
-		
-        //ToDoList mToDoListObject = new ToDoList(mContext);
-        //ArrayList<Todo> mToDoListArray = mToDoListObject.getTodos();
-        //String mserializedData = mGson.toJson(mToDoListArray);		
+		mDataFile = keyName;	
 	}
 }

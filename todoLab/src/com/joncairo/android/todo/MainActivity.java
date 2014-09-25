@@ -33,15 +33,12 @@ public class MainActivity extends FragmentActivity implements
 	EditText mNewToDoName;
 	ToDoFragment mtoDoFragment;
 	ToDoFragment mArchivedToDoFragment;
-	//String mAppDataFileName = "TODODATAKEY";
-	// these names identify the instances of the listfragment
-	// one is the todolist and the other is the archived todolist.
 	String mToDoListId = "TODOLIST";
 	String mArchivedToDoListId = "ARCHIVEDTODOLIST";
-	// this is the name of the file shared preferences will access for loading saved data
+	// name of the file shared preferences will access for loading saved data.
 	String mDataFileName = "TO_DO_DATA";
 
-	// this is a communication method built to communicate between
+	// Communication method built to communicate between
 	// the todo and archived fragments and the activity itself.
 	// it is called when the archived state is toggled and the todo
 	// needs to be passed from todo list to archived or vis a vis.
@@ -128,7 +125,7 @@ public class MainActivity extends FragmentActivity implements
 
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu){
-		// get the checked/unchecked counts
+		// get the checked/unchecked counts and number of archived/unarchived items
 		MenuItem totalTodos = menu.findItem(R.id.total_todos);
 		totalTodos.setTitle("Total Todos: " + Integer.toString(mtoDoFragment.mTodos.size()));
 		ArrayList<Integer> checkedAndUncheckedTotals = mtoDoFragment.totalCheckedAndUncheckedItems();
@@ -152,7 +149,6 @@ public class MainActivity extends FragmentActivity implements
 		// Handle action bar item clicks here. The action bar will
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
-		
 		// create the emailer
 		Emailer emailer = new Emailer(this);
 		switch (item.getItemId()) {

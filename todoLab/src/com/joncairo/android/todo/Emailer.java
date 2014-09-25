@@ -8,10 +8,9 @@ import android.util.Log;
 import android.util.SparseBooleanArray;
 
 public class Emailer {
-	private Context mContext;
-	
-	// This class should take different data structures which contain 
-	// todos and create and send emails based on them.
+	private Context mContext;	
+	// This class takes different data structures which contain 
+	// todos and creates and send emails based on them.
 	public Emailer(Context context){
 		mContext = context;
 	}

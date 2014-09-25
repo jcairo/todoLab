@@ -5,7 +5,6 @@ import java.util.UUID;
 
 public class Todo {
 	private String mToDoName;
-	// private UUID mToDoId;
 	private Date mDateCreated;
 	private Boolean mDone;
 	private Boolean mArchived;
@@ -29,16 +28,13 @@ public class Todo {
 	public void setArchived(Boolean archived) {
 		mArchived = archived;
 	}
-//	public UUID getToDoId() {
-//		return mToDoId;
-//	}
+
 	public Date getDateCreated() {
 		return mDateCreated;
 	}
 	
 	// To-do Constructor
 	public Todo(String todoname) {
-		//mToDoId = UUID.randomUUID();
 		mDateCreated = new Date();
 		mDone = false;
 		mArchived = false;
@@ -65,7 +61,6 @@ public class Todo {
 	
 	// The following clone method is from
 	// http://stackoverflow.com/questions/715650/how-to-clone-arraylist-and-also-clone-its-contents
-	
 	public Todo(Todo todo){
 		mToDoName = todo.getToDoName();
 		mDateCreated = todo.getDateCreated();

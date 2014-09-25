@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">todo</string>
+    <string name="app_name">jcairo-notes</string>
     <string name="title_section1">To-Do</string>
     <string name="title_section2">Archived</string>
     <string name="hello_world">Hello world!</string>
@@ -9,5 +9,18 @@
     <string name="default_todo_entry_text">Enter a todo</string>
     <string name="enter_button">Enter</string>
     <string name="Delete">Delete</string>
+    <string name="todo_name_field">Todo</string>
+    <string name="date_field">Date</string>
+    <string name="email_all">Email All</string>
+    <string name="email_todos">Email Todos</string>
+    <string name="email_archived">Email Archived</string>
+    <string name="total_todos">Total Todos</string>
+    <string name="total_checked_todos">Total Checked Todos</string>
+    <string name="total_unchecked_todos">Total Unchecked Todos</string>
+    <string name="total_archived">Total Archived</string>
+    <string name="total_checked_archived">Total Checked Archived</string>
+    <string name="total_unchecked_archived">Total Unchecked Archived</string>
+    <string name="unarchive">Unarchive</string>
+    <string name="archive">Archive</string>
     
 </resources>

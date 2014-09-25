@@ -23,7 +23,7 @@
         android:textStyle="bold"
         android:paddingLeft="4dp"
         android:paddingRight="4dp"
-        android:text="Test1" />
+        android:text="@string/todo_name_field" />
     
     <TextView 
         android:id="@+id/todo_list_item_dateTextView"
@@ -34,7 +34,7 @@
         android:paddingLeft="4dp"
         android:paddingRight="4dp"
         android:paddingTop="4dp"
-        android:text="Test2" />
+        android:text="@string/date_field" />
        
 
 </RelativeLayout>
