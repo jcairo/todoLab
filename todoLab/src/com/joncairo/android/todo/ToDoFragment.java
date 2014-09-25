@@ -234,7 +234,8 @@ public class ToDoFragment extends ListFragment {
 	}	
 
 	// create the custom adapter which manages the list of todo's
-	// adapted from The Big Nerd Ranch Guide p 189
+	// http://stackoverflow.com/questions/2265661/how-to-use-arrayadaptermyclass
+	// (September 25, 2014)
 	class ToDoAdapter extends ArrayAdapter<Todo> {
 		public ToDoAdapter(ArrayList<Todo> todo) {
 			super(getActivity(), 0, todo);
@@ -248,6 +249,9 @@ public class ToDoFragment extends ListFragment {
 	                .inflate(R.layout.list_view_layout, null);
 	        }
 	        // Configure the view for the todo
+	    	// taken from 
+	        // https://developer.android.com/samples/MediaRouter/src/com.example.android.mediarouter/player/MainActivity.html
+	        // (September 25, 2014)
 	        Todo t = getItem(position);
 	        TextView titleTextView =
 	        		(TextView)convertView.findViewById(R.id.todo_list_item_titleTextView);
@@ -270,7 +274,6 @@ public class ToDoFragment extends ListFragment {
 				@Override
 				public void onClick(View v) {
 					final boolean isChecked = checkBox.isChecked();
-					//Log.v(TAG, "checbox clicked inside adapter");
 					// update the data model
 					mTodos.get(position).setDone(isChecked);
 					mAdapter.notifyDataSetChanged();				
@@ -293,8 +296,6 @@ public class ToDoFragment extends ListFragment {
 		// I do this so they are added to the destination list in the 
 		// same order they were in in the origin list.
 		Integer lastItemIndex = toDosToBeAdded.size() - 1;
-		
-		// for (int i = 0; i < toDosToBeAdded.size(); i++){
 		for (int i = lastItemIndex; i >= 0; i--){
 
 			Todo todo = toDosToBeAdded.get(i);

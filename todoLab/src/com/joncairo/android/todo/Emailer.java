@@ -7,6 +7,9 @@ import android.content.Intent;
 import android.util.Log;
 import android.util.SparseBooleanArray;
 
+// This class manages the generation and sending of emails based
+// on either an arraylist of Todo objects or a sparesboolean array
+// of Todo objects.
 public class Emailer {
 	private Context mContext;	
 	// This class takes different data structures which contain 

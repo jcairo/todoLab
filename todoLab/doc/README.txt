@@ -43,3 +43,10 @@ what to do when the user clicks on the todo or archived tab. The ToggleToDoItemA
 archived or unarchived and must be switched into the alternate list. This is done
 by passing an ArrayList<Todo> to onToDoArchiveStateToggled() which simply uses the Todo
 add method on the relevant list.
+
+
+Licensing:
+I chose to use the GPL v3 license as it appeared I was unable to include GPL v3 code in an Apache2
+licensed product. It is my understanding that all code from Stack Overflow is GPL code and I have
+used many snippets. The Gson library is Apache 2 which can be used under the GPL v3.
+All used code was either taken from the Google Developer (Apache 2) guide or Stack Overflow (GPL).

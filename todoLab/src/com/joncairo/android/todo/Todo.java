@@ -1,5 +1,8 @@
 package com.joncairo.android.todo;
 
+// This class represents a Todo, An arraylist of these objects makes
+// up the todo list and a seperate arraylist makes up the archived to
+// do list.
 import java.util.Date;
 import java.util.UUID;
 
