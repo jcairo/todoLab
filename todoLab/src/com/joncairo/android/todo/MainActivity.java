@@ -143,8 +143,7 @@ public class MainActivity extends FragmentActivity implements
 		MenuItem totalArchivedTodosChecked = menu.findItem(R.id.total_checked_archived);
 		MenuItem totalArchivedTodosUnchecked = menu.findItem(R.id.total_unchecked_archived);
 		totalArchivedTodosChecked.setTitle("Archived Checked: " + Integer.toString(checkedAndUncheckedArchivedTotals.get(0)));
-		totalArchivedTodosUnchecked.setTitle("Archived Unchecked: " + Integer.toString(checkedAndUncheckedArchivedTotals.get(1)));
-		
+		totalArchivedTodosUnchecked.setTitle("Archived Unchecked: " + Integer.toString(checkedAndUncheckedArchivedTotals.get(1)));	
 		return true;
 	}
 	
@@ -153,8 +152,6 @@ public class MainActivity extends FragmentActivity implements
 		// Handle action bar item clicks here. The action bar will
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
-		
-		
 		
 		// create the emailer
 		Emailer emailer = new Emailer(this);
@@ -185,10 +182,7 @@ public class MainActivity extends FragmentActivity implements
 		}
 	}
 
-	/**
-	 * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
-	 * one of the sections/tabs/pages.
-	 */
+	// returns the fragment based on the specified integer index
 	public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
 		public SectionsPagerAdapter(FragmentManager fm) {
@@ -232,20 +226,14 @@ public class MainActivity extends FragmentActivity implements
 
 	@Override
 	public void onTabReselected(Tab tab, android.app.FragmentTransaction ft) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void onTabSelected(Tab tab, android.app.FragmentTransaction ft) {
-		// TODO Auto-generated method stub
-		mViewPager.setCurrentItem(tab.getPosition());
-		
+		mViewPager.setCurrentItem(tab.getPosition());		
 	}
 
 	@Override
 	public void onTabUnselected(Tab tab, android.app.FragmentTransaction ft) {
-		// TODO Auto-generated method stub
-		
 	}
 }

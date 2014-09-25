@@ -13,9 +13,6 @@ public class DataLoader {
 	Context mContext;
 	String mDataFile;
 	
-	// delete this after testing
-	//private ArrayList<Todo> mTodos;
-	
 	// set to do list
 	// parameter specifies key value in shared prefs
 	// reads sharedprefs returns a ToDoList object
@@ -33,9 +30,9 @@ public class DataLoader {
 	// get to do list obeject from sharedprefs
 	// parameter specifies key value in shared prefs
 	// reads sharedprefs returns a ToDoList object
-	public ArrayList<Todo> getData(String requestedString){
+	public ArrayList<Todo> getData(String stringKeyName){
         SharedPreferences sp = mContext.getSharedPreferences(mDataFile, 0);
-        String mSerializedString = sp.getString(requestedString, "NO_DATA_TO_READ");
+        String mSerializedString = sp.getString(stringKeyName, "NO_DATA_TO_READ");
         Gson gson = new Gson();
         // if theres no data pass an empty array list back otherwise pass the read in data.
 		ArrayList<Todo> mTodos = new ArrayList<Todo>();

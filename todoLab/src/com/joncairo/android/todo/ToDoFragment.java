@@ -30,7 +30,7 @@ public class ToDoFragment extends ListFragment {
 	private ListView mListView;
 	// private static final String TAG = "ToDoListFragment";
 	public ToggleToDoItemArchivedState mToDoArchivedCallback;
-	public DataLoader mDataLoader;
+	//public DataLoader mDataLoader;
 	// this is the identifier set in the constructor as to whether the
 	// instance is the todolist or the archived todolist
 	public String mKeyNameForToDoList;
@@ -75,7 +75,7 @@ public class ToDoFragment extends ListFragment {
         // set the host activity
         // call the dataloader and receive back a list of mTodos
         // which is an arraylist of todos then add them.
-        mDataLoader = new DataLoader(getActivity(), mDataFileName);
+        DataLoader mDataLoader = new DataLoader(getActivity(), mDataFileName);
         ArrayList<Todo> mLoadedTodosToBeAdded = mDataLoader.getData(mKeyNameForToDoList);
         addItemsToList(mLoadedTodosToBeAdded, "");        
         
@@ -174,6 +174,7 @@ public class ToDoFragment extends ListFragment {
 	   	} else {
 	   		t.setDone(true);
     	}
+	   	mAdapter.notifyDataSetChanged();
     	// Log.v("TAG", "List item clicked");
     }			
 		
@@ -306,7 +307,15 @@ public class ToDoFragment extends ListFragment {
 		// todolist. When something is added from the input field we just pass
 		// in an empty string so the archiving doesn't get set as its set to unarchived
 		// by default on entry.
-		for (int i = 0; i < toDosToBeAdded.size(); i++){
+		
+		// get the index of the last element in the list.
+		// I do this so they are added to the destination list in the 
+		// same order they were in in the origin list.
+		Integer lastItemIndex = toDosToBeAdded.size() - 1;
+		
+		// for (int i = 0; i < toDosToBeAdded.size(); i++){
+		for (int i = lastItemIndex; i >= 0; i--){
+
 			Todo todo = toDosToBeAdded.get(i);
 			// if the todo is coming from the todolist we
 			// we need to set it as an archived to do.
