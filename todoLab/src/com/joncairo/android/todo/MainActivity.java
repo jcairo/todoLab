@@ -34,6 +34,8 @@ import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 //import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.FragmentActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -115,23 +117,58 @@ public class MainActivity extends FragmentActivity implements
 		}
 		
 		// Wire up the to do text entry field
-		final EditText mNewToDoName = (EditText)findViewById(R.id.todo_text);					
+		mNewToDoName = (EditText)findViewById(R.id.todo_text);					
+		mNewToDoName.addTextChangedListener(new TextWatcher() {
+			
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count) {
+				DataLoader dataLoader = new DataLoader(getBaseContext(), mDataFileName);
+				dataLoader.setTextInputData(s.toString());
+			}
+			
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count,
+					int after) {
+			}
+			
+			@Override
+			public void afterTextChanged(Editable s) {	
+			}
+		});
+		
 		// Wire up the to do enter button
 		Button mDoIt = (Button)findViewById(R.id.enter_button);
 		mDoIt.setOnClickListener( new View.OnClickListener() {	
 			@Override
 			public void onClick(View v) {
-			ArrayList<Todo> mToDoToBeAdded = new ArrayList<Todo>();
-			// then add this as a new to do to the to do array				
-			String newToDoText = (String)mNewToDoName.getText().toString();
-			Log.v("ButtonTextCheck", newToDoText);
-			// Create a new todo instance 
+				ArrayList<Todo> mToDoToBeAdded = new ArrayList<Todo>();
+				String newToDoText = setInputText();
+				// Create a new todo instance 
 				Todo newTodo = new Todo(newToDoText);
 				mToDoToBeAdded.add(newTodo);
+				// delete the text
+				//mNewToDoName.setText("");
 				// append it to the todolist array
 				mtoDoFragment.addItemsToList(mToDoToBeAdded, "");	
 			}
 		}); 
+	}
+	
+	public String setInputText(){
+		String newToDoText = (String)mNewToDoName.getText().toString();
+		Todo newTodo = new Todo(newToDoText);
+		mNewToDoName.setText("");
+		return newToDoText;
+	}
+	
+	@Override
+	public void onResume(){
+		super.onResume();
+		// Loads the previously input text for the todo name if there is any
+		DataLoader dataLoader = new DataLoader(getBaseContext(), mDataFileName);
+		String savedText = dataLoader.getSavedTextInputData();
+		mNewToDoName.setText(savedText);
+		mNewToDoName.setSelection(savedText.length());
 	}
 
 	@Override

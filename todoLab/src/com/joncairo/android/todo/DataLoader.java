@@ -49,6 +49,25 @@ public class DataLoader {
 
 	}
 	
+	public String getSavedTextInputData(){
+        SharedPreferences sp = mContext.getSharedPreferences(mDataFile, 0);
+        String savedText = sp.getString("INPUTTEXT", "NO_DATA_TO_READ");
+        if (savedText == "NO_DATA_TO_READ"){
+        	return "";
+        } else {
+        	return savedText;
+        }
+    }
+	
+	public void setTextInputData(String inputText){
+        // get the shared prefs object	
+		SharedPreferences sp = mContext.getSharedPreferences(mDataFile, 0);
+        SharedPreferences.Editor spEditor = sp.edit();
+        spEditor.putString("INPUTTEXT", inputText);
+        spEditor.commit();
+		Log.v("DATA SAVE CHECK", "Saved input Text");
+	}
+	
 	// user needs to specify a data file key name and the context of 
 	// the application to create an instance
 	public DataLoader(Context context, String keyName){
