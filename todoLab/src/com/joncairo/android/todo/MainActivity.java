@@ -216,16 +216,16 @@ public class MainActivity extends FragmentActivity implements
 				// concatenate the arraylists
 				todosArrayAggregator.addAll(todosArrayArchivedToBeAdded);
 				//mtoDoFragment.emailSelectedItems(todosArrayAggregator);
-				emailer.emailArrayList(todosArrayAggregator);
+				emailer.emailArrayList(todosArrayAggregator, "Todos + Archived");
 				return true;
 			case R.id.email_all_todos:
 				ArrayList<Todo> todosArray = mtoDoFragment.mTodos;
-				emailer.emailArrayList(todosArray);			
+				emailer.emailArrayList(todosArray, "Todos");			
 				// get a list of all todos and email
 				return true;
 			case R.id.email_all_archived:
 				ArrayList<Todo> todosArrayArchived = mArchivedToDoFragment.mTodos;
-				emailer.emailArrayList(todosArrayArchived);	
+				emailer.emailArrayList(todosArrayArchived, "Archived Todos");	
 				return true;
 	        default:
 	            return super.onOptionsItemSelected(item);

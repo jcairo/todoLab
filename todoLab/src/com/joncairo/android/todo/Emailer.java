@@ -35,7 +35,7 @@ public class Emailer {
 		sendEmail(formattedEmailString);
 	}
 	
-	public void emailArrayList(ArrayList<Todo> todos){
+	public void emailArrayList(ArrayList<Todo> todos, String emailSubject){
 		// Method should receive an arraylist of todos to be
 		// emailed and create the formatted String ready to 
 		// be sent
@@ -48,7 +48,17 @@ public class Emailer {
        		Todo todo = todos.get(index);
        		formattedEmailString += todo.toStringEmailFormat() + '\n';
 		}
-		sendEmail(formattedEmailString);
+		sendEmail(formattedEmailString, emailSubject);
+	}
+	
+	private void sendEmail(String emailString, String emailSubject){
+		// Method should receive a preformatted email string
+		// that is ready to be sent.
+		Intent intent = new Intent(Intent.ACTION_SEND);
+		intent.setType("text/html");
+		intent.putExtra(Intent.EXTRA_SUBJECT, emailSubject);
+		intent.putExtra(Intent.EXTRA_TEXT, emailString);
+		mContext.startActivity(Intent.createChooser(intent, "Send Email"));
 	}
 	
 	private void sendEmail(String emailString){
