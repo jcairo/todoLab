@@ -64,6 +64,8 @@ public class Todo {
 	
 	// The following clone method is from
 	// http://stackoverflow.com/questions/715650/how-to-clone-arraylist-and-also-clone-its-contents
+	// Author: cdmckay
+	// (September 26, 2014)
 	public Todo(Todo todo){
 		mToDoName = todo.getToDoName();
 		mDateCreated = todo.getDateCreated();
