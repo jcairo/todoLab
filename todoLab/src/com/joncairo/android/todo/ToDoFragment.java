@@ -177,7 +177,6 @@ public class ToDoFragment extends ListFragment {
 	   		t.setDone(true);
     	}
 	   	mAdapter.notifyDataSetChanged();
-    	// Log.v("TAG", "List item clicked");
     }			
 		
 	// creates a new instance of this listfragment.

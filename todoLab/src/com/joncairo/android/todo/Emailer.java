@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.util.SparseBooleanArray;
 
 // This class manages the generation and sending of emails based
@@ -33,7 +32,6 @@ public class Emailer {
         		formattedEmailString += todo.toStringEmailFormat() + '\n';
         	}
 		}
-   		Log.v("EMAILSTRING", formattedEmailString);
 		sendEmail(formattedEmailString);
 	}
 	
@@ -50,7 +48,6 @@ public class Emailer {
        		Todo todo = todos.get(index);
        		formattedEmailString += todo.toStringEmailFormat() + '\n';
 		}
-   		Log.v("EMAILSTRING", formattedEmailString);
 		sendEmail(formattedEmailString);
 	}
 	

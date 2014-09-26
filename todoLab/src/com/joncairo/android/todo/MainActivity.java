@@ -36,7 +36,6 @@ import android.app.ActionBar.Tab;
 import android.support.v4.app.FragmentActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -175,7 +174,6 @@ public class MainActivity extends FragmentActivity implements
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
-		Log.v("Menu check", "Settings pressed");
 		return true;
 	}
 
@@ -252,7 +250,6 @@ public class MainActivity extends FragmentActivity implements
 			// selected
 			if (position == 0) {
 				mtoDoFragment = ToDoFragment.newInstance(position, mToDoListId, mDataFileName);
-				// Log.v("tag of fragment", mtoDoFragment.getTag());
 				return mtoDoFragment;			
 			} else {
 				mArchivedToDoFragment = ToDoFragment.newInstance(position, mArchivedToDoListId, mDataFileName);

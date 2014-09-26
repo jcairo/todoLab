@@ -4,7 +4,6 @@ import java.util.List;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -27,7 +26,6 @@ public class DataLoader {
         SharedPreferences.Editor spEditor = sp.edit();
         spEditor.putString(stringKeyName, mSerializedToDos);
         spEditor.commit();
-		Log.v("DATA SAVE CHECK", "Saved data");
 
 	}
 	// get to do list obeject from sharedprefs
@@ -42,7 +40,6 @@ public class DataLoader {
         if (mSerializedString == "NO_DATA_TO_READ"){
 			mTodos = new ArrayList<Todo>();
 		} else {
-			Log.v("DATA LOAD CHECK", "Loaded data");
 	        mTodos = gson.fromJson(mSerializedString, new TypeToken<List<Todo>>(){}.getType());
 		}
 		return mTodos;
@@ -65,7 +62,6 @@ public class DataLoader {
         SharedPreferences.Editor spEditor = sp.edit();
         spEditor.putString("INPUTTEXT", inputText);
         spEditor.commit();
-		Log.v("DATA SAVE CHECK", "Saved input Text");
 	}
 	
 	// user needs to specify a data file key name and the context of 
