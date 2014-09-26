@@ -234,6 +234,7 @@ public class ToDoFragment extends ListFragment {
 
 	// create the custom adapter which manages the list of todo's
 	// http://stackoverflow.com/questions/2265661/how-to-use-arrayadaptermyclass
+	// Author: Nikola Smiljanić
 	// (September 25, 2014)
 	class ToDoAdapter extends ArrayAdapter<Todo> {
 		public ToDoAdapter(ArrayList<Todo> todo) {
@@ -268,6 +269,8 @@ public class ToDoFragment extends ListFragment {
 	        final CheckBox checkBox = (CheckBox) row_layout_view.findViewById(R.id.todo_list_item_doneCheckBox);
 	        // checkbox.setOnClickListener adapted from 
 	        // http://stackoverflow.com/questions/15941635/how-to-add-a-listener-for-checkboxes-in-an-adapter-view-android-arrayadapter
+	        // Author: Kevik
+	        // (September 26, 2014)
 	        checkBox.setOnClickListener(new View.OnClickListener() {
 				
 				@Override
