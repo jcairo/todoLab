@@ -17,24 +17,6 @@ public class Emailer {
 		mContext = context;
 	}
 	
-	public void emailSparseBooleanArray(SparseBooleanArray todos, ArrayList<Todo> todosArray){
-		// Method should receive an SparseBooleanArray of todos to be
-		// emailed and create the formatted String ready to 
-		// be sent
-		String formattedEmailString = "";
-		for (int index = 0; index<todos.size(); index++){
-        	if(todos.valueAt(index)){
-        		// this funky bit adjust for the fact that when we delete
-        		// something from the arraylist of todoitems the positions
-        		// in the list change. To adjust you just subtract the number
-        		// of items already removed from the position your deleting.            
-        		Todo todo = todosArray.get(todos.keyAt(index));
-        		formattedEmailString += todo.toStringEmailFormat() + '\n';
-        	}
-		}
-		sendEmail(formattedEmailString);
-	}
-	
 	public void emailArrayList(ArrayList<Todo> todos, String emailSubject){
 		// Method should receive an arraylist of todos to be
 		// emailed and create the formatted String ready to 

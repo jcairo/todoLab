@@ -48,5 +48,7 @@ add method on the relevant list.
 Licensing:
 I chose to use the GPL v3 license as it appeared I was unable to include GPL v3 code in an Apache2
 licensed product. It is my understanding that all code from Stack Overflow is GPL code and I have
-used many snippets. The Gson library is Apache 2 which can be used under the GPL v3.
-All used code was either taken from the Google Developer (Apache 2) guide or Stack Overflow (GPL).
+used several snippets. The Gson library and all Google developer document code licensed under
+Apache 2 which is compatible the GPL v3.
+All code used was either taken from the Google Developer (Apache 2) guide or Stack Overflow (GPL)
+and is noted where used with the author name, date, and URL.
