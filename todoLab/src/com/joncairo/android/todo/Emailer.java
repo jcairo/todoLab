@@ -57,7 +57,7 @@ public class Emailer {
 	private void sendEmail(String emailString){
 		// Method should receive a preformatted email string
 		// that is ready to be sent.
-		Intent intent = new Intent(Intent.ACTION_SENDTO);
+		Intent intent = new Intent(Intent.ACTION_SEND);
 		intent.setType("text/html");
 		intent.putExtra(Intent.EXTRA_SUBJECT, "Todos List");
 		intent.putExtra(Intent.EXTRA_TEXT, emailString);

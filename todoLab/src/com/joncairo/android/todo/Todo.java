@@ -54,10 +54,10 @@ public class Todo {
 		if (this.getDone()){
 			toDoEmailable += " [x]";
 		} else {
-			toDoEmailable += " [ ]";
+			toDoEmailable += " [  ]";
 		}
 		if (this.getArchived()){
-			toDoEmailable += " Archived";
+			toDoEmailable += " (Archived)";
 		}
 		return toDoEmailable;
 	}
